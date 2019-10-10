@@ -27,7 +27,7 @@ class RollDice extends Component {
         this.setState({isRolling:true});
 
         //change die faces 
-        setTimeout(function(){
+        setTimeout(() => {
             this.setState({ 
                 die1: randomDie(),
                 die2: randomDie(),
@@ -35,11 +35,11 @@ class RollDice extends Component {
                 die4: randomDie(),
                 die5: randomDie(),
             })
-        }.bind(this), 100)
+        }, 100)
 
         //enable the roll button on a timed delay
-        setTimeout(function() {
-            this.setState({isRolling:false})}.bind(this), 1000);
+        setTimeout(() => {
+            this.setState({isRolling:false})}, 1000);
         
     }
 
