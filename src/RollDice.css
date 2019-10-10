@@ -9,6 +9,7 @@
 }
 
 .RollDice-button:hover {
-    background-color: tomato;
+    background-color: #ff6347;
+    cursor: pointer;
 }
 
