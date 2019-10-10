@@ -12,7 +12,7 @@ class RollDice extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isButtonDisabled: false,
+            isRolling: false,
             die1: randomDie(),
             die2: randomDie(),
             die3: randomDie(),
@@ -24,7 +24,7 @@ class RollDice extends Component {
 
     rollButton() {
         //disable button & apply CSS for shake 
-        this.setState({isButtonDisabled:true});
+        this.setState({isRolling:true});
 
         //change die faces 
         setTimeout(function(){
@@ -39,7 +39,7 @@ class RollDice extends Component {
 
         //enable the roll button on a timed delay
         setTimeout(function() {
-            this.setState({isButtonDisabled:false})}.bind(this), 1000);
+            this.setState({isRolling:false})}.bind(this), 1000);
         
     }
 
@@ -48,14 +48,16 @@ class RollDice extends Component {
         return (
             <div>
                 <div className="RollDice-wrapper">
-                    <Die num={this.state.die1} shake={this.state.isButtonDisabled}/>
-                    <Die num={this.state.die2} shake={this.state.isButtonDisabled}/>
-                    <Die num={this.state.die3} shake={this.state.isButtonDisabled}/>
-                    <Die num={this.state.die4} shake={this.state.isButtonDisabled}/>
-                    <Die num={this.state.die5} shake={this.state.isButtonDisabled}/>
+                    <Die num={this.state.die1} shake={this.state.isRolling}/>
+                    <Die num={this.state.die2} shake={this.state.isRolling}/>
+                    <Die num={this.state.die3} shake={this.state.isRolling}/>
+                    <Die num={this.state.die4} shake={this.state.isRolling}/>
+                    <Die num={this.state.die5} shake={this.state.isRolling}/>
                 </div>
                 <div>
-                    <button disabled={this.state.isButtonDisabled} onClick={this.rollButton} className="RollDice-button">{this.state.isButtonDisabled === true ? 'Rolling...' : 'Roll Dice!'}</button>
+                    <button disabled={this.state.isRolling} onClick={this.rollButton} className="RollDice-button">
+                        {this.state.isRolling === true ? 'Rolling...' : 'Roll Dice!'}
+                    </button>
                 </div>              
             </div>
         )
